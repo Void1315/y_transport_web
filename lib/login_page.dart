@@ -11,7 +11,6 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.white,
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.max,
