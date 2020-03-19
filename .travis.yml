@@ -5,3 +5,5 @@ dart:
 dart_task:
 - test: --platform vm
 - test: --platform chrome
+install:
+  - flutter pub get
