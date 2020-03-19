@@ -1,9 +1,11 @@
+cache:
+  directories:
+  - "$HOME/.pub-cache"
 jobs:
   include:
   - stage: test
     os: linux
     language: generic
-    sudo: false
     addons:
       apt:
         sources:
@@ -35,7 +37,6 @@ jobs:
       - extra-google-m2repository
       - extra-google-android-support
     jdk: oraclejdk8
-    sudo: false
     # 以上都是在安装AndroidSDK
     env: APK_OUTPUT=build/app/outputs/apk/release/app-release.apk
     addons:
