@@ -31,8 +31,8 @@ jobs:
       components:
       - tools
       - platform-tools
-      - build-tools-27.0.3
-      - android-27
+      - build-tools-28.0.3
+      - android-28
       - sys-img-armeabi-v7a-google_apis-25
       - extra-android-m2repository
       - extra-google-m2repository
@@ -51,9 +51,12 @@ jobs:
     #以上为Flutter环境搭建
     before_script:
     # 用你自己的解密命令替代
-    - openssl aes-256-cbc -K $encrypted_776ef06f66bb_key -iv $encrypted_776ef06f66bb_iv -in key.properties.enc -out android/key.properties -d
+    - openssl aes-256-cbc -K $encrypted_776ef06f66bb_key -iv $encrypted_776ef06f66bb_iv -in key.properties.enc -out /android/key.properties -d
     - openssl aes-256-cbc -K $encrypted_49f04bc83535_key -iv $encrypted_49f04bc83535_iv -in key.jks.enc -out android/key.jks -d
-    - git clone https://github.com/flutter/flutter.git -b beta --depth 1
+    - git clone https://github.com/flutter/flutter.git -b beta
+    - export PATH=`pwd`/flutter/bin:`pwd`/flutter/bin/cache/dart-sdk/bin:$PATH
+    - flutter doctor
+
     script:
     - "./flutter/bin/flutter upgrade"
     - "./flutter/bin/flutter -v build apk --release"
