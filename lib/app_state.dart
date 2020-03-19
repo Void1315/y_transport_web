@@ -12,7 +12,8 @@ class AppState {
    */
   AppState.initialState() {
     userState = UserModel();
-    themeState = ThemeModel(themeData: ThemeData.dark());
+    // themeState = ThemeModel(themeData: ThemeData.light());
+    themeState = ThemeModel.lightTheme();
   }
 }
 
