@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "931576183965",
+    "firebase_url": "https://y-transport.firebaseio.com",
+    "project_id": "y-transport",
+    "storage_bucket": "y-transport.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931576183965:android:632926f8b3333d9992e874",
+        "android_client_info": {
+          "package_name": "com.yhy1315.ytransportweb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "931576183965-ujb8gtf6k251hlcrjolntero8kjnlhp1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yhy1315.ytransportweb",
+            "certificate_hash": "fe9493b4a6290b4852b21c6d15603760e85e82bf"
+          }
+        },
+        {
+          "client_id": "931576183965-qm0a0cblo192sd79jdij119e2t2kh9r8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoPK1rHauD21mg5blVe73Ya9HjB4fzoAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "931576183965-qm0a0cblo192sd79jdij119e2t2kh9r8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

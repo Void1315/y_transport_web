@@ -22,8 +22,11 @@ if (flutterVersionName == null) {
 }
 
 apply plugin: 'com.android.application'
+// 谷歌服务
+apply plugin: 'com.google.gms.google-services'
+
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
-// qianming
+// 签名
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file('key.properties')
 if (keystorePropertiesFile.exists()) {

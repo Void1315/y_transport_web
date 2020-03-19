@@ -8,7 +8,8 @@
 .buildlog/
 .history
 .svn/
-
+# 加密文件
+key.jks
 android/key.properties
 
 # IntelliJ related
