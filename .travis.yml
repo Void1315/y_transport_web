@@ -67,5 +67,3 @@ jobs:
       api_key:
         secure: 247f613f57ff41f8f8a476004da66186f6587a8e
       file: $APK_OUTPUT
-      on:
-        tags: true
