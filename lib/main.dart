@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'app_state.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'login_page.dart';
+import 'pages/welcome/index.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
             return MaterialApp(
               title: 'Flutter Login',
               theme: store.state.themeState.themeData,
-              home: LoginPage(),
+              home: WelcomePage(),
             );
           },
         ));
