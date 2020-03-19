@@ -18,8 +18,8 @@ jobs:
     - export PATH=`pwd`/flutter/bin:`pwd`/flutter/bin/cache/dart-sdk/bin:$PATH
     - flutter doctor
     script:
-    - "flutter upgrade"
-    - "flutter test"
+    - flutter upgrade
+    - flutter test
   - stage: deployAPK
     os: linux
     language: android
@@ -38,8 +38,6 @@ jobs:
       - extra-google-m2repository
       - extra-google-android-support
     jdk: oraclejdk8
-
-    # 以上都是在安装AndroidSDK
     env: APK_OUTPUT=build/app/outputs/apk/release/app-release.apk
     addons:
       apt:
@@ -48,22 +46,19 @@ jobs:
         packages:
         - libstdc++6
         - fonts-droid
-    #以上为Flutter环境搭建
     before_script:
-    # 用你自己的解密命令替代
-    - openssl aes-256-cbc -K $encrypted_776ef06f66bb_key -iv $encrypted_776ef06f66bb_iv -in key.properties.enc -out android/key.properties -d
-    - openssl aes-256-cbc -K $encrypted_49f04bc83535_key -iv $encrypted_49f04bc83535_iv -in key.jks.enc -out android/key.jks -d
+    - openssl aes-256-cbc -K $encrypted_776ef06f66bb_key -iv $encrypted_776ef06f66bb_iv
+      -in key.properties.enc -out android/key.properties -d
+    - openssl aes-256-cbc -K $encrypted_49f04bc83535_key -iv $encrypted_49f04bc83535_iv
+      -in key.jks.enc -out android/key.jks -d
     - git clone https://github.com/flutter/flutter.git -b beta
     - export PATH=`pwd`/flutter/bin:`pwd`/flutter/bin/cache/dart-sdk/bin:$PATH
     - flutter doctor
-
     script:
     - "./flutter/bin/flutter upgrade"
     - "./flutter/bin/flutter -v build apk --release"
     deploy:
       provider: releases
-      cleanup: true
-      # 用你的api_key替代
       api_key:
-        secure: 247f613f57ff41f8f8a476004da66186f6587a8e
+        secure: mxJdIBkoZvKWIyuSRJOVu5DFVw63MqxD3khNlWODWZULyi6qDxs1oCQI7IgFF5twrrFNkI4vmwMmIISwsAzfbfUJuqCoIo9is0p5wiUMAHbleJ7aPBiUFCzpmP0i1/EWSUxZnLdvezytHf1i12gYD6B3+H/Ueh5DIkV9aI8+8ycaITBQRJ5Ohyfn8t8v9QSi/tx/UCqlCIlMnqQH/7SxsU0aY1VhjUh1kpXku7+XEzYN0CgfG8hz5XfAZqHrsWs6Fxo8p7n0kLpePpFLQON7kqkpKGSJD+YIPZ4zklIxsmrxgbGqe8l6Dm4kelnUr/27Xi899QDP+3mBiA+O1Ia5I0n5++fzvtHJfi77lNgSx8q9GLB2ZbOSYVwMDSaVkJ1LU27OCr/sfmASDmMg5QwY4xu4D6XURCkOojCNEqewhVNOei3ciP+GgaAcvfmPekCukX2RlCiv8CpF5Xr52kOKVn2gmZyJMxk/YSyhzzyeVZ/4oYv8/UgH8EJeGt6ILEfs2f2S8NmFnsQuaJW8vc/cjQ6k3bUGEnLSdR3QsUsVDSkvMnHEqd+VTnJji/SCyU+3/Xs+8qn68gBtSPAnWfSPiNyCZGltX5fJh72DdkeDGbuKa/O8Looz1fTztpwsgmxdgm2bPd+JUXGthFhGmBvA/C1V8BV6gYyCDg5m1g7JbOM=
       file: $APK_OUTPUT
