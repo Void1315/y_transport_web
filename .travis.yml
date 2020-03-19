@@ -59,6 +59,8 @@ jobs:
     - "./flutter/bin/flutter -v build apk --release"
     deploy:
       provider: releases
+      branch: dev
+      cleanup: true
       api_key:
         secure: mxJdIBkoZvKWIyuSRJOVu5DFVw63MqxD3khNlWODWZULyi6qDxs1oCQI7IgFF5twrrFNkI4vmwMmIISwsAzfbfUJuqCoIo9is0p5wiUMAHbleJ7aPBiUFCzpmP0i1/EWSUxZnLdvezytHf1i12gYD6B3+H/Ueh5DIkV9aI8+8ycaITBQRJ5Ohyfn8t8v9QSi/tx/UCqlCIlMnqQH/7SxsU0aY1VhjUh1kpXku7+XEzYN0CgfG8hz5XfAZqHrsWs6Fxo8p7n0kLpePpFLQON7kqkpKGSJD+YIPZ4zklIxsmrxgbGqe8l6Dm4kelnUr/27Xi899QDP+3mBiA+O1Ia5I0n5++fzvtHJfi77lNgSx8q9GLB2ZbOSYVwMDSaVkJ1LU27OCr/sfmASDmMg5QwY4xu4D6XURCkOojCNEqewhVNOei3ciP+GgaAcvfmPekCukX2RlCiv8CpF5Xr52kOKVn2gmZyJMxk/YSyhzzyeVZ/4oYv8/UgH8EJeGt6ILEfs2f2S8NmFnsQuaJW8vc/cjQ6k3bUGEnLSdR3QsUsVDSkvMnHEqd+VTnJji/SCyU+3/Xs+8qn68gBtSPAnWfSPiNyCZGltX5fJh72DdkeDGbuKa/O8Looz1fTztpwsgmxdgm2bPd+JUXGthFhGmBvA/C1V8BV6gYyCDg5m1g7JbOM=
       file: $APK_OUTPUT
