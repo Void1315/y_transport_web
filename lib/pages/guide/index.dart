@@ -103,7 +103,7 @@ class GuidePageState extends State<GuidePage> {
                               ),
                               color: state.themeState.themeData.primaryColor,
                               textColor: Colors.white,
-                              onPressed: () => {},
+                              onPressed: () => {Navigator.pushNamed(context, "/sign_in")},
                               shape: RoundedRectangleBorder(
                                   borderRadius:
                                       new BorderRadius.circular(30.0)))),
