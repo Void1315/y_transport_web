@@ -56,7 +56,9 @@ class WelcomePageState extends State<WelcomePage> {
     // // 开始播放动画
     // animationController.forward();
   }
-
+  _jumpToGuidePage(){
+    Navigator.pushNamed(context, "/guide");
+  }
   _signUpButton(viewModel) {
     return Container(
         width: double.infinity,
@@ -91,7 +93,7 @@ class WelcomePageState extends State<WelcomePage> {
             ),
             child: Flex(
               direction: Axis.vertical,
-              mainAxisAlignment:MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Column(children: [
                   makeLine(
@@ -119,22 +121,32 @@ class WelcomePageState extends State<WelcomePage> {
                         style: TextStyle(color: Colors.white),
                       ))),
                 ]),
-                Column(children: <Widget>[
-                   _signUpButton(viewModel),
-                   Container(
-                      alignment: Alignment.center,
-                      margin: EdgeInsets.fromLTRB(0, 40, 0, 75),
-                      child: Row(children: <Widget>[
-                        Text(
-                          "已经有账号了？",
-                          style: TextStyle(color: Colors.white,fontSize: 18,),
-                        ),
-                        Text("登录",
+                Column(
+                  children: <Widget>[
+                    _signUpButton(viewModel),
+                    Container(
+                        alignment: Alignment.center,
+                        margin: EdgeInsets.fromLTRB(0, 40, 0, 75),
+                        child: Row(children: <Widget>[
+                          Text(
+                            "已经有账号了？",
                             style: TextStyle(
+                              color: Colors.white,
                               fontSize: 18,
-                                color: viewModel.themeData.primaryColor))
-                      ], mainAxisAlignment: MainAxisAlignment.center)),
-                ],),
+                            ),
+                          ),
+                          Container(
+                            child: GestureDetector(
+                              onTap: _jumpToGuidePage,
+                              child: Text("登录",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: viewModel.themeData.primaryColor)),
+                            ),
+                          )
+                        ], mainAxisAlignment: MainAxisAlignment.center)),
+                  ],
+                ),
               ],
             ),
           ));
