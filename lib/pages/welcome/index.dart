@@ -5,7 +5,6 @@ import 'package:ytransportweb/app_state.dart';
 import '../../components/logo_text.dart';
 import 'package:flutter_animation_set/animation_set.dart';
 import 'package:flutter_animation_set/animator.dart';
-import '../../action/index.dart';
 
 class WelcomePage extends StatefulWidget {
   @override
@@ -40,23 +39,13 @@ class WelcomePageState extends State<WelcomePage> {
 
   void initState() {
     super.initState();
-    // 创建 AnimationController，用于控制动画
-    // 必须提供动画时间
-    // animationController = new AnimationController(
-    //     vsync: this, duration: Duration(milliseconds: 1500));
-    // // 创建一个插值器，关联 AnimationController，返回一个新的 Animation 对象
-    // animation = Tween<double>(begin: 100.0, end: 100.0 * 2.0)
-    //     .animate(animationController);
-
-    // animationController.addListener(() {
-    //   // 当动画更新时会调用
-    //   // 需要在这个函数中，调用 setState() 来触发视图刷新
-    //   setState(() {});
-    // });
-    // // 开始播放动画
-    // animationController.forward();
   }
-
+  _jumpToGuidePage(){
+    Navigator.pushNamed(context, "/guide");
+  }
+  _jumpToSignInPage(){
+    Navigator.pushNamed(context, "/sign_in");
+  }
   _signUpButton(viewModel) {
     return Container(
         width: double.infinity,
@@ -70,7 +59,7 @@ class WelcomePageState extends State<WelcomePage> {
             ),
             color: viewModel.themeData.primaryColor,
             textColor: Colors.white,
-            onPressed: () => {},
+            onPressed: _jumpToGuidePage,
             shape: RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(30.0))));
   }
@@ -91,7 +80,7 @@ class WelcomePageState extends State<WelcomePage> {
             ),
             child: Flex(
               direction: Axis.vertical,
-              mainAxisAlignment:MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Column(children: [
                   makeLine(
@@ -119,22 +108,32 @@ class WelcomePageState extends State<WelcomePage> {
                         style: TextStyle(color: Colors.white),
                       ))),
                 ]),
-                Column(children: <Widget>[
-                   _signUpButton(viewModel),
-                   Container(
-                      alignment: Alignment.center,
-                      margin: EdgeInsets.fromLTRB(0, 40, 0, 75),
-                      child: Row(children: <Widget>[
-                        Text(
-                          "已经有账号了？",
-                          style: TextStyle(color: Colors.white,fontSize: 18,),
-                        ),
-                        Text("登录",
+                Column(
+                  children: <Widget>[
+                    _signUpButton(viewModel),
+                    Container(
+                        alignment: Alignment.center,
+                        margin: EdgeInsets.fromLTRB(0, 40, 0, 75),
+                        child: Row(children: <Widget>[
+                          Text(
+                            "已经有账号了？",
                             style: TextStyle(
+                              color: Colors.white,
                               fontSize: 18,
-                                color: viewModel.themeData.primaryColor))
-                      ], mainAxisAlignment: MainAxisAlignment.center)),
-                ],),
+                            ),
+                          ),
+                          Container(
+                            child: GestureDetector(
+                              onTap: _jumpToSignInPage,
+                              child: Text("登录",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: viewModel.themeData.primaryColor)),
+                            ),
+                          )
+                        ], mainAxisAlignment: MainAxisAlignment.center)),
+                  ],
+                ),
               ],
             ),
           ));

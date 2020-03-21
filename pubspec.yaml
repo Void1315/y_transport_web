@@ -32,6 +32,12 @@ dependencies:
   flutter_animation_set: ^0.0.3
   cupertino_icons: ^0.1.2
 
+  #轮播图
+  flutter_swiper : ^1.1.6
+
+  #login
+  flutter_login: ^1.0.14
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

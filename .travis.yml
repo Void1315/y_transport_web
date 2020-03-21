@@ -14,7 +14,7 @@ jobs:
         - libstdc++6
         - fonts-droid-fallback
     before_script:
-    - git clone https://github.com/flutter/flutter.git -b beta
+    - git clone https://github.com/flutter/flutter.git -b stable
     - export PATH=`pwd`/flutter/bin:`pwd`/flutter/bin/cache/dart-sdk/bin:$PATH
     - flutter doctor
     script:
@@ -51,7 +51,7 @@ jobs:
       -in key.properties.enc -out android/key.properties -d
     - openssl aes-256-cbc -K $encrypted_49f04bc83535_key -iv $encrypted_49f04bc83535_iv
       -in key.jks.enc -out android/key.jks -d
-    - git clone https://github.com/flutter/flutter.git -b beta
+    - git clone https://github.com/flutter/flutter.git -b stable
     - export PATH=`pwd`/flutter/bin:`pwd`/flutter/bin/cache/dart-sdk/bin:$PATH
     - flutter doctor
     script:
