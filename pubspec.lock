@@ -116,9 +116,11 @@ packages:
   flushbar:
     dependency: transitive
     description:
-      name: flushbar
-      url: "https://pub.flutter-io.cn"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: "13c55a888c1693f1c8269ea30d55c614a1bfee16"
+      url: "https://github.com/AndreHaueisen/flushbar.git"
+    source: git
     version: "1.9.1"
   flutter:
     dependency: "direct main"
@@ -135,9 +137,11 @@ packages:
   flutter_login:
     dependency: "direct main"
     description:
-      name: flutter_login
-      url: "https://pub.flutter-io.cn"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: ebef8eaa282a79318e6ce7a681d1479403d9d630
+      url: "https://github.com/Void1315/flutter_login.git"
+    source: git
     version: "1.0.14"
   flutter_page_indicator:
     dependency: transitive
@@ -349,7 +353,7 @@ packages:
       name: test_api
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.2.11"
+    version: "0.2.15"
   transformer_page_view:
     dependency: transitive
     description:

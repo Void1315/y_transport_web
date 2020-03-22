@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
+import '../../util/regular.dart';
 
 const users = const {
   'dribbble@gmail.com': '12345',
@@ -8,7 +9,9 @@ const users = const {
 
 class LoginScreen extends StatelessWidget {
   Duration get loginTime => Duration(milliseconds: 2250);
-
+  /**
+   * 登录判断
+   */
   Future<String> _authUser(LoginData data) {
     print('Name: ${data.name}, Password: ${data.password}');
     return Future.delayed(loginTime).then((_) {
@@ -20,6 +23,27 @@ class LoginScreen extends StatelessWidget {
       }
       return null;
     });
+  }
+  /**
+   * 注册判断
+   */
+  Future<String> _authSignUp(LoginData data) {
+    return Future.delayed(loginTime).then((_) {
+      if (!users.containsKey(data.name)) {
+        return 'Username not exists';
+      }
+      if (users[data.name] != data.password) {
+        return 'Password does not match';
+      }
+      return null;
+    });
+  }
+
+  String _emailValidator(String email) {
+    if (Regular.email.hasMatch(email))
+      return null;
+    else
+      return "错误的邮箱格式!";
   }
 
   Future<String> _recoverPassword(String name) {
@@ -38,9 +62,10 @@ class LoginScreen extends StatelessWidget {
       title: 'Y出行',
       logo: 'assets/images/logo.png',
       onLogin: _authUser,
-      onSignup: _authUser,
+      emailValidator: _emailValidator,
+      onSignup: _authSignUp,
       messages: LoginMessages(
-        usernameHint: '您的手机号码',
+        usernameHint: '您的邮箱地址',
         passwordHint: '您的密码',
         forgotPasswordButton: '忘记密码？',
         loginButton: '登录',
