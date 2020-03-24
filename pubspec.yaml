@@ -35,9 +35,14 @@ dependencies:
   #轮播图
   flutter_swiper : ^1.1.6
 
+  dio: ^3.0.9
+  dio_cookie_manager: ^1.0.0
+  # flutter_login:
+  #   git:
+  #     url: https://github.com/Void1315/flutter_login.git
+  #     ref: phone
   flutter_login:
-    git:
-      url: https://github.com/Void1315/flutter_login.git
+    path: /home/asahi/work/flutter/flutter_login
 
 dev_dependencies:
   flutter_test:

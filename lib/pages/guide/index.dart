@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:ytransportweb/app_state.dart';
+import 'package:ytransportweb/util/api.dart';
 
 class GuidePage extends StatefulWidget {
   @override
@@ -12,6 +13,13 @@ class GuidePageState extends State<GuidePage> {
   @override
   void initState() {
     super.initState();
+  }
+
+  _test(){
+    API.instance.test().then((value) => null).catchError((err){
+      print(err);
+      return err;
+    });
   }
 
   List<String> titleList = ["你的旅行计划", "你的出行方式", "你的旅行时光"];
@@ -120,7 +128,7 @@ class GuidePageState extends State<GuidePage> {
                               ),
                               color: state.themeState.themeData.buttonColor,
                               textColor: Colors.white,
-                              onPressed: () => {},
+                              onPressed: _test,
                               shape: RoundedRectangleBorder(
                                   borderRadius:
                                       new BorderRadius.circular(30.0))))

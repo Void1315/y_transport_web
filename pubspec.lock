@@ -50,6 +50,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.1"
+  cookie_jar:
+    dependency: transitive
+    description:
+      name: cookie_jar
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.1"
   crypto:
     dependency: transitive
     description:
@@ -64,6 +71,20 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.1.3"
+  dio:
+    dependency: "direct main"
+    description:
+      name: dio
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.0.9"
+  dio_cookie_manager:
+    dependency: "direct main"
+    description:
+      name: dio_cookie_manager
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.0"
   firebase:
     dependency: transitive
     description:
@@ -137,11 +158,9 @@ packages:
   flutter_login:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: ebef8eaa282a79318e6ce7a681d1479403d9d630
-      url: "https://github.com/Void1315/flutter_login.git"
-    source: git
+      path: "/home/asahi/work/flutter/flutter_login"
+      relative: false
+    source: path
     version: "1.0.14"
   flutter_page_indicator:
     dependency: transitive
