@@ -158,9 +158,11 @@ packages:
   flutter_login:
     dependency: "direct main"
     description:
-      path: "/home/asahi/work/flutter/flutter_login"
-      relative: false
-    source: path
+      path: "."
+      ref: phone
+      resolved-ref: fcd51d716f904c8e888d2789101e4ba767725cb9
+      url: "https://github.com/Void1315/flutter_login.git"
+    source: git
     version: "1.0.14"
   flutter_page_indicator:
     dependency: transitive
