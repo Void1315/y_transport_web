@@ -23,6 +23,7 @@ class API {
   String _test = '/ping';
   String _signUpPhone = '$signUpPre/phone';
   String _signUpCreate = '$signUpPre/create';
+  String _signIn = '$authPre/sign_in';
 
   API._internal() {
     // 初始化
@@ -36,13 +37,9 @@ class API {
     onResponse:(Response response) async {
      // 如果状态码不对，则返回错误信息
      if(response.data["code"]!= 200) return dio.reject(response.data["msg"]);
-     else return response.data;
-     // 否则返回数据
+     else return response.data;     // 否则返回数据
+
     },
-    onError: (DioError e) async {
-      // 当请求失败时做一些预处理
-     return e;//continue
-    }
 ));
   }
   static API _getInstance() {
@@ -60,24 +57,18 @@ class API {
     }
     return result;
   }
-  Future<dynamic> signUpPhone({@required String phone}) async {
-     var result;
-     try{
-       result = await API.dio.post(_signUpPhone,data:{"phone":phone});
-     }catch(err){
-       return err.message;
-     }
-    return result;
-  }
+  
+  
+  Future<dynamic> signUpPhone({@required String phone}) async => API.dio.post(_signUpPhone,data:{"phone":phone});
 
-  Future<dynamic> signUpCreate({@required String phone,@required String code,@required String password}) async  {
-    var result;
-    try{
-      result = await API.dio.post(_signUpCreate,data:{"phone":phone,"code":code,"password":password});
-    }catch(err){
-      return err.message;
-    }
-    return result;
-  }
+  Future<dynamic> signUpCreate({@required String phone,@required String code,@required String password}) async  => API.dio.post(_signUpCreate,data:{"phone":phone,"code":code,"password":password});
+
+  Future<dynamic> signIn({
+    @required String phone,
+    @required String password
+  }) async => API.dio.post(_signIn,data:{
+    "phone":phone,
+    "password":password,
+  });
 
 }

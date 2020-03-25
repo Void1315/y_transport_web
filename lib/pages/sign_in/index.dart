@@ -63,31 +63,33 @@ class LoginScreenState extends State<LoginScreen> {
    * 登录判断
    */
   Future<String> _authUser(LoginData data) {
-    print('Name: ${data.name}, Password: ${data.password}');
-    return Future.delayed(loginTime).then((_) {
-      if (!users.containsKey(data.name)) {
-        return 'Username not exists';
-      }
-      if (users[data.name] != data.password) {
-        return 'Password does not match';
-      }
-      return null;
+    return API.instance.signIn(phone: data.name, password: data.password).then((value){
+
+      return '';
+    }).catchError((err){
+      return err.message;
     });
   }
-  /**
+
+  /*
    * 注册判断
    */
   Future<String> _authSignUp(SignUpData data) {
-    return API.instance.signUpCreate(phone: data.name, code: data.verificationCode, password: data.password).then((data)=>null).catchError((err) => err);
+    return API.instance.signUpCreate(phone: data.name, code: data.verificationCode, password: data.password).then((data)=>'').catchError((err) => err.message);
   }
 
-  Future<String> _onSendCode(LoginData user){
-    // startCountdownTimer(); // 打开计时器
-    // setState(() {
-    //   sendCodeDisable = true;
-    // });
+  /*
+   * 发送验证码
+   */
+  Future<String> _onSendCode(LoginData user) async{
+    startCountdownTimer(); // 打开计时器
+    setState(() {
+      sendCodeDisable = true;
+    });
     return API.instance.signUpPhone(phone: user.name).then((data) {
-      return null;
+      return '';
+    }).catchError((err){
+      return err.message;
     });
   }
 
