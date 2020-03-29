@@ -35,7 +35,7 @@ class IndexPageState extends State<IndexPage>{
   final List<Widget> _children = [
     HomeNavigator(),
     OrderPage(),
-    MinePage(),
+    MinePageNavigator(),
   ];
   final List<String> _title = [
     "首页",
@@ -50,7 +50,7 @@ class IndexPageState extends State<IndexPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("asd"),),
+      // appBar: AppBar(title: Text("asd"),),
       body: _children[_currentIndex],
        bottomNavigationBar: new BottomNavigationBar(
         onTap: onTabTapped,
