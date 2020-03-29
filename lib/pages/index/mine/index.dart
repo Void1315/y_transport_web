@@ -31,7 +31,12 @@ class MinePage extends StatefulWidget {
 
 class MinePageState extends State<MinePage> {
   List<Map<String, dynamic>> _operatingList = [
+    {"icons": Icon(Icons.lock), "title": "修改密码", "routeName": "help"},
+    {"icons": Icon(Icons.person_add), "title": "邀请朋友", "routeName": "help"},
+    {"icons": Icon(Icons.card_giftcard), "title": "积分&优惠券", "routeName": "help"},
     {"icons": Icon(Icons.help), "title": "帮助中心", "routeName": "help"},
+    {"icons": Icon(Icons.payment), "title": "支付", "routeName": "help"},
+    {"icons": Icon(Icons.settings), "title": "设置", "routeName": "help"},
   ];
 
   @override
@@ -65,15 +70,10 @@ class MinePageState extends State<MinePage> {
 
   Widget _operatingListWidget() {
     return Container(
-      height: 200,
-      child: ListView.builder(
-          itemCount: _operatingList.length,
-          itemBuilder: (BuildContext context, int index) {
-            return _buildOperating(
-                _operatingList[index]["icons"],
-                _operatingList[index]['title'],
-                _operatingList[index]['routeName']);
-          }),
+      margin: EdgeInsets.only(top: 45),
+      child: Column(
+        children: _operatingList.map((e) => Expanded(flex: 0,child: _buildOperating(e['icons'],e['title'],e['routeName']))).toList()
+      ),
     );
   }
 
