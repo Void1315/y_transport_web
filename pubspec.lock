@@ -85,55 +85,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.0"
-  firebase:
-    dependency: transitive
-    description:
-      name: firebase
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "7.2.1"
-  firebase_auth:
-    dependency: "direct main"
-    description:
-      name: firebase_auth
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.15.5+2"
-  firebase_auth_platform_interface:
-    dependency: transitive
-    description:
-      name: firebase_auth_platform_interface
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.1.7"
-  firebase_auth_web:
-    dependency: transitive
-    description:
-      name: firebase_auth_web
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.1.2"
-  firebase_core:
-    dependency: transitive
-    description:
-      name: firebase_core
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.4.4+3"
-  firebase_core_platform_interface:
-    dependency: transitive
-    description:
-      name: firebase_core_platform_interface
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.0.4"
-  firebase_core_web:
-    dependency: transitive
-    description:
-      name: firebase_core_web
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.1.1+2"
   flushbar:
     dependency: transitive
     description:
@@ -158,9 +109,11 @@ packages:
   flutter_login:
     dependency: "direct main"
     description:
-      path: "/home/asahi/work/flutter/flutter_login"
-      relative: false
-    source: path
+      path: "."
+      ref: phone
+      resolved-ref: fcd51d716f904c8e888d2789101e4ba767725cb9
+      url: "https://github.com/Void1315/flutter_login.git"
+    source: git
     version: "1.0.14"
   flutter_page_indicator:
     dependency: transitive
@@ -188,11 +141,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_web_plugins:
-    dependency: transitive
-    description: flutter
-    source: sdk
-    version: "0.0.0"
   font_awesome_flutter:
     dependency: transitive
     description:
@@ -200,34 +148,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "8.7.0"
-  google_sign_in:
-    dependency: "direct main"
-    description:
-      name: google_sign_in
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "4.1.4"
-  google_sign_in_platform_interface:
-    dependency: transitive
-    description:
-      name: google_sign_in_platform_interface
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.1.0"
-  google_sign_in_web:
-    dependency: transitive
-    description:
-      name: google_sign_in_web
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.8.4"
-  http:
-    dependency: transitive
-    description:
-      name: http
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.12.0+4"
   http_parser:
     dependency: transitive
     description:
@@ -242,13 +162,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.4"
-  js:
-    dependency: transitive
-    description:
-      name: js
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.6.1+1"
   matcher:
     dependency: transitive
     description:
@@ -277,13 +190,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.6.4"
-  pedantic:
-    dependency: transitive
-    description:
-      name: pedantic
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.8.0+1"
   petitparser:
     dependency: transitive
     description:
@@ -291,13 +197,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.4.0"
-  plugin_platform_interface:
-    dependency: transitive
-    description:
-      name: plugin_platform_interface
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.0.2"
   provider:
     dependency: transitive
     description:
@@ -409,5 +308,5 @@ packages:
     source: hosted
     version: "3.5.0"
 sdks:
-  dart: ">=2.7.0-dev <3.0.0"
-  flutter: ">=1.12.13+hotfix.4 <2.0.0"
+  dart: ">2.4.0 <3.0.0"
+  flutter: ">=1.12.1 <2.0.0"
